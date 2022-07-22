@@ -8,6 +8,8 @@
 #ifndef MSGID_H
 #define	MSGID_H
 
+#include <stdint.h>
+
 #ifdef	__cplusplus
 extern "C" {
 #endif
