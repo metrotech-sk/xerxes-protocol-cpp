@@ -42,6 +42,11 @@ extern "C" {
 /** Distance sensor 0-225mm, resistive, linear*/
 #define DEVID_DIST_225MM                0x41
 
+#define DEVID_AIR_POL_CO_NOX_VOC        0x50
+#define DEVID_AIR_POL_PM                0x51
+#define DEVID_AIR_POL_CO_NOX_VOC_PM     0x52
+#define DEVID_AIR_POL_CO_NOX_VOC_PM_GPS 0x53
+
 
 #ifdef	__cplusplus
 }
