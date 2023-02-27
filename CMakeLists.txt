@@ -1,29 +1,15 @@
-
 cmake_minimum_required(VERSION 3.22)
-set(PROJECT_NAME xerxes-protocol)
 
-project(${PROJECT_NAME} C CXX ASM)
+project(xerxes-protocol C CXX ASM)
 set(CMAKE_CXX_STANDARD 23)
 
-include_directories(xerxes-protocol)
 
-set(xerxes_files
-    xerxes-protocol/Message.cpp
-    xerxes-protocol/Network.cpp
-    xerxes-protocol/Packet.cpp
-    xerxes-protocol/Protocol.cpp
-)
+set(xerxes-protocol_DIR ".")
+find_package(xerxes-protocol REQUIRED)
 
-set(headers
-    xerxes-protocol/Message.hpp
-    xerxes-protocol/Network.hpp
-    xerxes-protocol/Packet.hpp
-    xerxes-protocol/Protocol.hpp
-    xerxes-protocol/DeviceIds.h
-    xerxes-protocol/MessageId.h
-)
+include_directories(xerxes-protocol_INCLUDE_DIRS)
 
-add_library(${PROJECT_NAME} STATIC ${xerxes_files})
+add_library(xerxes-protocol STATIC ${xerxes-protocol_SOURCES})
 
-install(TARGETS ${PROJECT_NAME} DESTINATION lib)
-install(FILES ${headers} DESTINATION include/xerxes-protocol)
+install(TARGETS xerxes-protocol DESTINATION lib/xerxes-protocol)
+install(FILES ${xerxes-protocol_HEADERS} DESTINATION include/xerxes-protocol)
