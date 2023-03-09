@@ -47,6 +47,9 @@ public:
      * @param message vector to construct the packet from
      */
     Packet(std::vector<uint8_t> &message);
+
+    Packet(const std::vector<uint8_t> &message);
+
     ~Packet();
 
     /**

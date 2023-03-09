@@ -34,6 +34,9 @@ public:
      */
     bool sendMessage(Message &message) const;
 
+    /// @overload 
+    bool sendMessage(const Message &message) const;
+
     /**
      * @brief Read a message from the network interface
      * 

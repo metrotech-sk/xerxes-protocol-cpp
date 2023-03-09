@@ -27,6 +27,25 @@ Packet::Packet(std::vector<uint8_t> &message)
 }
 
 
+Packet::Packet(const std::vector<uint8_t> &message)
+{
+    checksum = 0;
+    uint8_t msgLen = message.size() + 3;
+    data.emplace_back(SOH); // start of packet
+    data.emplace_back(msgLen); // message length
+    checksum = SOH + msgLen;
+
+    for(const auto &el:message)
+    {
+        data.emplace_back(el);
+        checksum += el;
+    }
+
+    checksum = ~(checksum & 0xFF) + 1; // two's complement
+    data.emplace_back(checksum);
+}
+
+
 Packet::~Packet()
 {
 }

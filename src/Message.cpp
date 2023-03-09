@@ -73,6 +73,12 @@ Packet Message::toPacket()
 }
 
 
+Packet Message::toPacket() const
+{
+    return Packet(messageBytes);
+}
+
+
 void Message::update(
     const uint8_t source, 
     const uint8_t destination, 

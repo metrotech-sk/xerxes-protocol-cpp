@@ -87,6 +87,10 @@ public:
      */
     Packet toPacket();
 
+    /// @brief Convert the message to a valid const packet
+    /// @return Packet with the message data
+    Packet toPacket() const;
+
     /**
      * @brief Get the Payload Begin object
      * 

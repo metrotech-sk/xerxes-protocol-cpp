@@ -18,6 +18,12 @@ bool Protocol::sendMessage(Message &message) const
 }
 
 
+bool Protocol::sendMessage(const Message &message) const
+{
+    return xn->sendData(message.toPacket());
+}
+
+
 bool Protocol::readMessage(Message &message, const uint64_t timeoutUs)
 {
     Packet packet = Packet();
