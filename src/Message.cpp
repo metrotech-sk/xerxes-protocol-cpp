@@ -1,6 +1,7 @@
 #include "Message.hpp"
 
 #include "MessageId.h"
+#include <stdio.h>
 
 
 namespace Xerxes
@@ -14,12 +15,12 @@ Message::Message()
 
 Message::Message(const Packet &packet)
 {
-    srcAddr = packet.at(2);
-    dstAddr = packet.at(3);
+    this->srcAddr = packet.at(2);
+    this->dstAddr = packet.at(3);
     msgid_u msgIdRaw;
     msgIdRaw.msgid_8.msgid_l = packet.at(4);
     msgIdRaw.msgid_8.msgid_h = packet.at(5);
-    msgId = msgIdRaw.msgid_16;
+    this->msgId = msgIdRaw.msgid_16;
 
     for(uint16_t i=2; i<packet.size()-1; i++)
     {
@@ -109,6 +110,12 @@ size_t Message::size() const
 uint8_t Message::at(const uint8_t pos) const
 {
     return messageBytes.at(pos);
+}
+
+
+std::vector<uint8_t>::const_iterator Message::begin() const
+{
+    return messageBytes.cbegin();
 }
 
 

@@ -95,6 +95,14 @@ public:
     std::vector<uint8_t>::const_iterator payloadBegin() const;
 
     /**
+     * @brief Get the Begin object
+     * 
+     * @return std::vector<uint8_t>::const_iterator Iterator to the end of the payload
+     */
+    std::vector<uint8_t>::const_iterator begin() const;
+
+
+    /**
      * @brief Get the Payload End object
      * 
      * @return std::vector<uint8_t>::const_iterator Iterator to the end of the payload
