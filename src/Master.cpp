@@ -58,7 +58,7 @@ ping_reply_t Master::ping(
     }
     else
     {
-        throw std::runtime_error("Ping timeout.");
+        throw TimeoutError("Ping timeout.");
     }
 }
 
@@ -127,7 +127,7 @@ std::vector<uint8_t> Master::readMemory(
     }
     else
     {
-        throw std::runtime_error("Read memory timeout.");
+        throw TimeoutError("Read memory timeout.");
     }
 }
 
@@ -177,7 +177,7 @@ bool Master::writeMemory(
     }
     else
     {
-        throw std::runtime_error("Write memory timeout.");
+        throw TimeoutError("Write memory timeout.");
     }
 
 }

@@ -5,6 +5,8 @@
 #include "MessageId.h"
 #include "Protocol.hpp"
 #include <vector> 
+#include <string>
+#include <stdexcept>
 
 
 typedef struct 
@@ -23,6 +25,14 @@ constexpr uint64_t _default_timeout_us = 10000; // 10ms
 
 namespace Xerxes
 {
+
+
+class TimeoutError : public std::runtime_error
+{
+public:
+    TimeoutError(const std::string &what_arg) : std::runtime_error(what_arg) {}
+};
+
 
 class Master
 {
@@ -117,6 +127,26 @@ public:
         const uint8_t *data, 
         const uint8_t size
     );
+
+    template<class T>
+    T readValue(
+        address_t device_addr, 
+        const uint16_t mem_addr
+    )
+    {
+        std::vector<uint8_t> data = readMemory(device_addr, mem_addr, sizeof(T));
+        return *(T*)data.data();
+    }
+
+    template<class T>
+    bool writeValue(
+        address_t device_addr, 
+        const uint16_t mem_addr, 
+        const T value
+    )
+    {
+        return writeMemory(device_addr, mem_addr, (uint8_t*)&value, sizeof(T));
+    }
 
 };
     
