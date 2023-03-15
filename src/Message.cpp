@@ -124,5 +124,20 @@ std::vector<uint8_t>::const_iterator Message::begin() const
     return messageBytes.cbegin();
 }
 
+uint8_t* Message::data()
+{
+    return messageBytes.data();
+}
+
+
+bool packetIsValidMessage(const Packet &packet)
+{
+    if(packet.size() < 7)
+    {
+        return false;
+    }
+    
+}
+
 
 } // namespace Xerxes

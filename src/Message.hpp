@@ -113,7 +113,11 @@ public:
      */
     std::vector<uint8_t>::const_iterator end() const;
 
+    uint8_t* data();
 };
+
+
+bool packetIsValidMessage(const Packet &packet);
 
 
 } // namespace Xerxes

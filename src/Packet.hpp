@@ -5,6 +5,7 @@
 #include <vector>
 #include <cstdint>
 #include <stddef.h>
+#include <string>
 
 
 namespace Xerxes
@@ -30,7 +31,7 @@ private:
     uint8_t checksum;
 
     /// @brief Data of the packet
-    std::vector<uint8_t> data = std::vector<uint8_t> {};
+    std::vector<uint8_t> _data = std::vector<uint8_t> {};
 
     /// @brief Size of the packet
     size_t _size;
@@ -60,14 +61,19 @@ public:
     size_t size() const;
 
     /**
-     * @brief Get the Data object as a vector
+     * @brief Get the Data object as a vector. Data object contains all bytes
+     * from the packet including SOH, LEN and CHECKSUM
      * 
      * @return std::vector<uint8_t> data of the packet
      */
     std::vector<uint8_t> getData() const;
 
+    void setData(const std::vector<uint8_t> &data);
+
+    const uint8_t *data() const;
+
     /**
-     * @brief Get the empty packet
+     * @brief Get the empty packet with SOH, LEN and checksum precalcualted
      * 
      * @return Packet empty packet
      */
@@ -80,6 +86,30 @@ public:
      * @return uint8_t data at the position
      */
     uint8_t at(const uint8_t pos) const;
+
+    /**
+     * @brief Check if the data may represent a valid xerxes packet
+     * 
+     * @param data 
+     * @return true 
+     * @return false 
+     */
+    static bool isValidPacket(const std::vector<uint8_t> &data);
+
+    /**
+     * @brief Check if the packet is valid
+     * 
+     * @return true 
+     * @return false 
+     */
+    bool isValidPacket();
+
+    /**
+     * @brief Return representation of the packet for debugging
+     * 
+     * @return std::string 
+     */
+    std::string toString() const;
 };
 
 

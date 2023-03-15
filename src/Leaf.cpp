@@ -21,5 +21,10 @@ ping_reply_t Leaf::ping()
     return master->ping(_my_addr);
 }
 
+const address_t Leaf::getAddr() const
+{
+    return _my_addr;
+}
+
 
 } // namespace Xerxes

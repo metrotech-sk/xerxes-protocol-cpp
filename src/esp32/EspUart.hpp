@@ -4,6 +4,7 @@
 #include "Network.hpp"
 #include "Message.hpp"
 #include "esp_err.h"
+#include "esp_log.h"
 #include "driver/uart.h"
 #include <vector>
 
@@ -27,9 +28,9 @@ public:
     ~EspUart();
 
     bool sendData(const Packet & toSend) const override;
+
     bool readData(const uint64_t timeoutUs, Packet &packet) override;
 };
-
 
 
 EspUart::EspUart(const int uart_pin_tx, const int uart_pin_rx, const int uart_pin_tx_en)
@@ -65,17 +66,15 @@ EspUart::~EspUart()
 
 bool EspUart::sendData(const Packet & toSend) const
 {
+    auto size = toSend.size();
     ESP_LOGD(TAG, "Preparing data");
-    const size_t size = toSend.size();
-    uint8_t data[size] = {0};
     for (size_t i = 0; i < size; i++)
     {
-        data[i] = toSend.at(i);
-        ESP_LOGV(TAG, "data[%d] = %d", i, data[i]);
+        ESP_LOGV(TAG, "data[%d] = %d", i, toSend.data()[i]);
     }
 
     ESP_LOGD(TAG, "Sending data");
-    const int txBytes = uart_write_bytes(uart_num, (const char *)data, size);
+    const int txBytes = uart_write_bytes(uart_num, (const char *)toSend.data(), size);
 
     return txBytes == size;
 }
