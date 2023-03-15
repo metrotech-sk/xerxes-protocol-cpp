@@ -102,7 +102,7 @@ public:
      * @return true 
      * @return false 
      */
-    bool isValidPacket();
+    bool isValidPacket() const;
 
     /**
      * @brief Return representation of the packet for debugging

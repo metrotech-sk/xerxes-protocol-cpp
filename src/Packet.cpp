@@ -89,7 +89,7 @@ void Packet::setData(const std::vector<uint8_t> &data)
     _data = data;
 }
 
-bool Packet::isValidPacket()
+bool Packet::isValidPacket() const
 {
     if(_data[0] != SOH)
     {
@@ -136,8 +136,12 @@ std::string Packet::toString() const
     {
         ss << std::hex << (int)c << ":";
     }
+
+    // remove last character ":" from the string
+    std::string s = ss.str();
+    s.pop_back();
     
-    return ss.str();
+    return s;
 }
 
 

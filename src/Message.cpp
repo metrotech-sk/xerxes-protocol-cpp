@@ -136,7 +136,8 @@ bool packetIsValidMessage(const Packet &packet)
     {
         return false;
     }
-    
+
+    return true;    
 }
 
 
