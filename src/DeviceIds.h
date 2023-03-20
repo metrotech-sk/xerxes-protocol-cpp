@@ -36,6 +36,9 @@ enum DeviceId : devid_t
 
 /** Encoder reader */
     DEVID_ENC_1000PPR               = 0x2A,
+    
+/** Cutter */
+    DEVID_CUTTER                    = 0x2B,
 
 /** Inclinometer SCL3300 */
     DEVID_ANGLE_XY_90               = 0x30,

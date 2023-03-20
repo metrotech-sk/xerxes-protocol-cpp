@@ -1,4 +1,4 @@
-set(PREFIX ${CMAKE_CURRENT_LIST_DIR}/xerxes-protocol)
+set(PREFIX ${CMAKE_CURRENT_LIST_DIR}/src)
 set(xerxes-protocol_VERSION 1.4.0)
 
 set(xerxes-protocol_SOURCES

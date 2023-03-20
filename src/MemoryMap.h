@@ -3,7 +3,9 @@
 
 #include <stdint.h>
 
+#ifndef FLASH_PAGE_SIZE
 #define FLASH_PAGE_SIZE             256
+#endif // !FLASH_PAGE_SIZE
 
 #define VOLATILE_OFFSET             FLASH_PAGE_SIZE       // 256 bytes
 #define READ_ONLY_OFFSET            FLASH_PAGE_SIZE * 2   // 512 bytes
@@ -35,6 +37,11 @@
 
 // memory offset of address of the device (1 byte)
 #define OFFSET_ADDRESS              44
+
+#define CONFIG_VAL0_OFFSET          48
+#define CONFIG_VAL1_OFFSET          52
+#define CONFIG_VAL2_OFFSET          56
+#define CONFIG_VAL3_OFFSET          60
 
 // ############################# //
 // ###### Volatile range ####### //
@@ -80,6 +87,12 @@
 #define AV1_OFFSET                  VOLATILE_OFFSET + 100     // 356
 #define AV2_OFFSET                  VOLATILE_OFFSET + 104     // 360
 #define AV3_OFFSET                  VOLATILE_OFFSET + 108     // 364
+
+// signed values
+#define SV0_OFFSET                  VOLATILE_OFFSET + 112     // 368
+#define SV1_OFFSET                  VOLATILE_OFFSET + 116     // 372
+#define SV2_OFFSET                  VOLATILE_OFFSET + 120     // 376
+#define SV3_OFFSET                  VOLATILE_OFFSET + 124     // 380
 
 // memory offset for the safety lock of the device memory (1 byte)
 #define MEM_UNLOCKED_OFFSET         VOLATILE_OFFSET + 128     // 384
