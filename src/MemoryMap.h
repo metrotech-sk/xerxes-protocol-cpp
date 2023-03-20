@@ -138,7 +138,7 @@ constexpr uint32_t MEM_UNLOCKED_VAL = 0x55AA55AA;
  * 
  */
 typedef struct {
-    bool freeRun :    1; // enable free run of sensor
+    bool freeRun :    1; // enable free run of device
     bool calcStat :   1; // enable calculation of statistics
     bool bit2 :       1;
     bool bit3 :       1;
