@@ -16,6 +16,9 @@ typedef uint8_t devid_t;
  */
 enum DeviceId : devid_t
 {
+/** temperature sensor ds18b20 */
+    DEVID_TEMP_DS18B20              = 0x02,
+
 /** pressure sensor range 0-600mbar, output in Pa, 2 external temperature sensors -50/150°C output: mK */
     DEVID_PRESSURE_600MBAR          = 0x03,
 
