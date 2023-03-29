@@ -62,7 +62,9 @@ enum DeviceId : devid_t
     DEVID_AIR_POL_CO_NOX_VOC        = 0x50,
     DEVID_AIR_POL_PM                = 0x51,
     DEVID_AIR_POL_CO_NOX_VOC_PM     = 0x52,
-    DEVID_AIR_POL_CO_NOX_VOC_PM_GPS = 0x53
+    DEVID_AIR_POL_CO_NOX_VOC_PM_GPS = 0x53,
+
+    DEVID_LIGHT_SOUND_POLLUTION     = 0x60,
 };
 
 
