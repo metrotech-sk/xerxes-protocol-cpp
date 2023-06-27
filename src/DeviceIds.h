@@ -43,6 +43,9 @@ enum DeviceId : devid_t
 /** Cutter */
     DEVID_CUTTER                    = 0x2B,
 
+/** Tier */
+    DEVID_TIER                      = 0x2C,
+
 /** Inclinometer SCL3300 */
     DEVID_ANGLE_XY_90               = 0x30,
 
