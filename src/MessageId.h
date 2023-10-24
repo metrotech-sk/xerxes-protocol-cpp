@@ -43,6 +43,19 @@ const msgid_t MSGID_ACK_NOK                       = 0x0003;
  * The message prototype  is [MSGID_SLEEP_ALL] <uint32_t>[DURATION_US]  */
 const msgid_t MSGID_SLEEP                         = 0x0004;
 
+/**
+ * @brief Get device info - device id, firmware version, etc.
+ * 
+ */
+const msgid_t MSGID_GET_INFO                     = 0x0005;
+
+
+/**
+ * @brief Reply to MSGID_GET_INFO message - device id, firmware version, etc.
+ * 
+ */
+const msgid_t MSGID_INFO                         = 0x0006;
+
 
 /**
  * @brief Request for hard reset of the device - return to factory settings 
