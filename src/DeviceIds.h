@@ -58,6 +58,9 @@ extern "C"
         /** SCL3300 in accelerometer mode*/
         DEVID_ACCEL_XYZ = 0x32,
 
+        /** ST LIS2DW12 accelerometer */
+        DEVID_ACCEL_LIS = 0x33,
+
         /** Distance sensor 0-22mm, resistive, linear*/
         DEVID_DIST_22MM = 0x40,
 
