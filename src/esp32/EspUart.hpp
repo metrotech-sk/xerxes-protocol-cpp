@@ -49,6 +49,8 @@ namespace Xerxes
             .flow_ctrl = UART_HW_FLOWCTRL_DISABLE,
             .rx_flow_ctrl_thresh = 122,
         };
+
+        _pin_modem_enable = (gpio_num_t)uart_pin_tx_en;
         // Configure UART parameters
         ESP_LOGD("EspUart", "Configuring UART");
         ESP_ERROR_CHECK(uart_param_config(uart_num, &uart_config));
@@ -170,7 +172,7 @@ namespace Xerxes
                 return false;
             }
 
-            if (lengthByte < 1 || lengthByte > 255)
+            if (lengthByte < 3 || lengthByte > 255)
             {
                 // invalid length, keep reading until we get SOH
                 ESP_LOGD("EspUart", "Invalid length: %d", lengthByte);
