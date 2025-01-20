@@ -61,6 +61,9 @@ extern "C"
         /** ST LIS2DW12 accelerometer */
         DEVID_ACCEL_LIS = 0x33,
 
+        /** ST LIS2DW12 accelerometer in separate XY axis */
+        DEVID_ACCEL_LIS_XY = 0x34,
+
         /** Distance sensor 0-22mm, resistive, linear*/
         DEVID_DIST_22MM = 0x40,
 
